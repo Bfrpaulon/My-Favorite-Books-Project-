@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    background-color: #807070;
+    color: #fff;
+}
+img {
+    width: 300px;
+    height: 300px;
+}
+footer {
+    background-color: #8dbdeb;
+    color: #fff;
+}

@@ -1,28 +1,57 @@
-   // Defina a data final da oferta 
-   var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime(); 
-          
-   // Atualiza a contagem a cada 1 segundo 
-   var x = setInterval(function() { 
-   
-     // Obtém a data/hora atual 
-     var now = new Date().getTime(); 
-     
-     // Encontra a distância entre agora e a data final da oferta 
-     var distance = countDownDate - now; 
-     
-     // Calcula os dias, horas, minutos e segundos 
-     var days = Math.floor(distance / (1000 * 60 * 60 * 24)); 
-     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); 
-     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); 
-     var seconds = Math.floor((distance % (1000 * 60)) / 1000); 
-     
-     // Exibe o resultado 
-     document.getElementById("countdown").innerHTML = hours + "h " 
-     + minutes + "m " + seconds + "s "; 
-     
-     // Se a contagem chegar a zero, exibe a mensagem "Oferta encerrada" 
-     if (distance < 0) { 
-       clearInterval(x); 
-       document.getElementById("countdown").innerHTML = "Oferta encerrada"; 
-     } 
-   }, 1000); 
+var slideIndex = 1;
+
+//Function to move to the next slide
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+//Function to show a specific slide
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
+
+//Function to show the slides
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+}
+
+//Automatic slideshow
+setInterval(function () {
+  plusSlides(1);
+}, 5000);
+
+// Set the countdown timer to 15 minutes (in seconds)
+
+var countDownTime = 15 * 60;
+
+// Update counter every second
+setInterval(function () {
+  countDownTime--;
+  var minutes = Math.floor(countDownTime / 60);
+  var seconds = countDownTime % 60;
+
+  // Add a zero in front of the minute or second values if necessary
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  // Update the counter on the page
+  document.getElementById("countdown").innerHTML = minutes + ":" + seconds;
+}, 1000);
+
+showSlides(slideIndex);

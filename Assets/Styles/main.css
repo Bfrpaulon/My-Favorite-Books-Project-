@@ -3,15 +3,159 @@
     padding: 0;
     box-sizing: border-box;
 }
-header {
-    background-color: #807070;
-    color: #fff;
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+
+    header .d-flex {
+        flex-direction: column;
+    }
+
+    header img {
+        margin-bottom: 10px;
+    }
+
+    main,
+    footer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+    }
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    header .d-flex {
+        flex-direction: column;
+    }
+
+    header img {
+        margin-bottom: 10px;
+    }
+
+    main,
+    footer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+html,
+body {
+    width: 100%;
+}
+
+@font-face {
+    font-family: 'Slant';
+    src: url(/Assets/fonts/SLANT.TTF);
+}
+
+body {
+    font-family: 'Slant';
+    background-image: linear-gradient(to right, #6da67a, #77b885, #86c28b, #859987, #4a4857);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header img {
+    width: 100px;
+    height: 80px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.slideshow-container {
+    max-width: 300px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    fontsize: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.dots {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dots:hover {
+    background-color: #717171;
+}
+
 img {
-    width: 300px;
-    height: 300px;
+    width: 100%;
 }
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+}
+
 footer {
-    background-color: #8dbdeb;
     color: #fff;
 }
